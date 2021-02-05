@@ -1,5 +1,5 @@
 DESCRIPTION = "Boot strap code that the GPU puts on memory to start running the boot loader"
-LICENSE = "Proprietary"
+LICENSE = "BSD-3-Clause"
 
 LIC_FILES_CHKSUM = "file://armstub.S;beginline=1;endline=26;md5=9888f34ac06a676129416c952a6a521e"
 
@@ -11,6 +11,10 @@ COMPATIBLE_MACHINE = "^rpi$"
 
 S = "${RPITOOLS_S}/armstubs"
 
+export CC7="${CC}"
+export LD7="${LD}"
+export OBJCOPY7="${OBJCOPY}"
+export OBJDUMP7="${OBJDUMP}"
 export CC8="${CC}"
 export LD8="${LD}"
 export OBJCOPY8="${OBJCOPY}"

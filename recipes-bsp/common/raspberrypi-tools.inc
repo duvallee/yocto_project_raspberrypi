@@ -1,9 +1,9 @@
-SRCREV ?= "76f64a28dc4685507d12f57fe5cfc89f6c32f8e6"
-RPITOOLS_SRC_URI ?= "https://github.com/raspberrypi/tools/archive/${SRCREV}.tar.gz"
+RPITOOLS_DATE ?= "20200803"
+SRCREV ?= "0c39cb5b5ac9851312a38c54f5aea770d976de7a"
+RPITOOLS_SRC_URI ?= "https://github.com/raspberrypi/tools/archive/${SRCREV}.tar.gz;downloadfilename=raspberrypi-tools-${SRCREV}.tar.gz"
 RPITOOLS_S ?= "${WORKDIR}/tools-${SRCREV}"
 
 SRC_URI = "${RPITOOLS_SRC_URI}"
-SRC_URI[md5sum] = "e2d4709b62e1536aeaaeabcbae82a03e"
-SRC_URI[sha256sum] = "5f1c5eb8af9dff71b7cae30ffa6541d689d269a7b86013b365215adfb4c1c27d"
+SRC_URI[sha256sum] = "ef56a891eef387d2278e6f9d20b462021faace14aceeb2048b5e5973069c25c0"
 
-PV = "0.0+git${SRCREV}"
+PV = "${RPITOOLS_DATE}"

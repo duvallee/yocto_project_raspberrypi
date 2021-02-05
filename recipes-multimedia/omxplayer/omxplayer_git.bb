@@ -7,7 +7,7 @@ SECTION = "console/utils"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=00a27da7ac0f9bcd17320ec29ef4bbf6"
 
-DEPENDS = "libpcre libav virtual/egl boost freetype dbus openssl libssh libomxil coreutils-native curl-native userland"
+DEPENDS = "libpcre libav virtual/egl boost freetype dbus openssl libssh virtual/libomxil coreutils-native curl-native userland"
 
 PR = "r5"
 
@@ -41,6 +41,7 @@ SRC_URI_append = "${@bb.utils.contains("MACHINE_FEATURES", "vc4graphics", " file
 S = "${WORKDIR}/git"
 
 COMPATIBLE_MACHINE = "^rpi$"
+COMPATIBLE_HOST_aarch64 = "null"
 
 def cpu(d):
     for arg in (d.getVar('TUNE_CCARGS') or '').split():
