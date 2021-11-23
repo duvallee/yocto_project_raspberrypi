@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 COMPATIBLE_MACHINE = "^rpi$"
 
 SRCREV = "648ffc470824c43eb0d16c485f4c24816b32cd6f"
-SRC_URI = "git://github.com/Evilpaul/RPi-config.git;protocol=git;branch=master \
+SRC_URI = "git://github.com/Evilpaul/RPi-config.git;protocol=https;branch=master \
           "
 
 S = "${WORKDIR}/git"
@@ -192,6 +192,12 @@ do_deploy() {
     if [ "${ENABLE_DWC2_PERIPHERAL}" = "1" ]; then
         echo "# Enable USB peripheral mode" >> ${DEPLOYDIR}/${BOOTFILES_DIR_NAME}/config.txt
         echo "dtoverlay=dwc2,dr_mode=peripheral" >> ${DEPLOYDIR}/${BOOTFILES_DIR_NAME}/config.txt
+    fi
+
+    # DWC2 USB host mode support
+    if [ "${ENABLE_DWC2_HOST}" = "1" ]; then
+        echo "# Enable USB host mode" >> ${DEPLOYDIR}/${BOOTFILES_DIR_NAME}/config.txt
+        echo "dtoverlay=dwc2,dr_mode=host" >> ${DEPLOYDIR}/${BOOTFILES_DIR_NAME}/config.txt
     fi
 
     # AT86RF23X support
